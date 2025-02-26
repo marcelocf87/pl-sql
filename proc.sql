@@ -1,0 +1,12 @@
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE teste_plsql IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('PL/SQL rodando no SQL Developer!');
+END;
+
+
+BEGIN
+    teste_plsql;
+END;
+
