@@ -90,15 +90,25 @@ END;
 /
 
 
---manipulação de cursores
+--manipulação de cursores (são usados para manipular dados linhas por linha)
+--exemplo de cursor explícito
+DECLARE
+   CURSOR c_lancamentos IS--declaração do cursor
+       SELECT historico, valor FROM lancamentos;
+   v_historico lancamentos.historico%TYPE;--%type garante que a variável tenha o mesmo tipo de dado das colunas na tabela
+   v_valor lancamentos.valor%TYPE;
+BEGIN
+   OPEN c_lancamentos;--abre o cursor
+   LOOP--para percorrer os registros
+       FETCH c_lancamentos INTO v_historico, v_valor;--extrai a linha do cursor e armazena nas variáveis
+       EXIT WHEN c_lancamentos%NOTFOUND;--encerra o loop se não forem encontrados mais registros
+       DBMS_OUTPUT.PUT_LINE('Histórico do lançamento ' || v_historico || ' = R$ ' || v_valor);--imprime os dados concatenando os valores com a string
+   END LOOP;--finaliza o loop
+   CLOSE c_lancamentos;--fecha o cursos liberando os dados extraídos
+END;
+/
+   
+--Modularização com Procedures e Functions
+--Tratamento de Erros
 
-
-/*
-
-
-
-- Modularização com Procedures e Functions
-- Tratamento de Erros
-- Manipulação de Tabelas e Registros
-*/
 
