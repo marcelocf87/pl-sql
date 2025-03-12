@@ -107,6 +107,24 @@ BEGIN
    CLOSE c_lancamentos;--fecha o cursos liberando os dados extraídos
 END;
 /
+
+--cursor implícito
+DECLARE
+    v_total NUMBER;
+BEGIN
+    --a oracle cria automaticamente um cursor implícito para essa consulta
+    SELECT
+        COUNT(*)
+    INTO v_total
+    FROM
+        lancamentos
+    WHERE
+        bandeira_id = 3;
+    dbms_output.put_line('Total de lançamentos: ' || v_total);
+END;
+/
+
+select * from lancamentos;
    
 --Modularização com Procedures e Functions
 --Tratamento de Erros
