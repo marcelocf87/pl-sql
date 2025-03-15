@@ -6,6 +6,11 @@ SELECT USERNAME FROM ALL_USERS order by 1;
 
 SELECT USERNAME FROM DBA_USERS order by 1;
 
+
+--resetar a senha
+ALTER USER C##MARCELO IDENTIFIED BY marcelo123;
+
+
 --verificar se tem privilégio DBA
 SELECT * FROM user_role_privs WHERE granted_role = 'DBA';
 
