@@ -3,11 +3,10 @@ set serveroutput on;
 SET VERIFY OFF;  -- Evita exibição do código alterado antes da execução
 
 --1 Declare uma variável do tipo NUMBER, atribua um valor e exiba na saída depois altere para exibir um número informado pelo usuário
-ACCEPT numero NUMBER PROMPT 'Digite um número: ';--Exibe uma mensagem pedindo para o usuário digitar um número que ficará armazenado como uma variável global &numero
+ACCEPT numero NUMBER PROMPT 'Digite um número: '--Exibe uma mensagem pedindo para o usuário digitar um número que ficará armazenado como uma variável global &numero
 declare
-    v_numero NUMBER;
-begin
-    v_numero := &numero;
+     v_numero NUMBER := &numero;
+begin   
     dbms_output.put_line('O número é: ' || v_numero);
 end;
 /
