@@ -1,3 +1,31 @@
+/*
+1 - O que é PL/SQL?
+É uma extensão procedural do SQL usada no Oracle, permitindo controle de fluxo e manipulação de variáveis.
+
+2 - Estrutura de um Bloco PL/SQL
+DECLARE: Declara variáveis antes da execução.
+BEGIN: Contém o código executável.
+EXCEPTION: Trata erros.
+END: Finaliza o bloco.
+
+3 - Variáveis e Tipos de Dados
+NUMBER, VARCHAR2, DATE, BOOLEAN: Tipos básicos para armazenar valores.
+%TYPE e %ROWTYPE: Relacionam variáveis com colunas ou registros de tabelas.
+
+4 - Comandos Condicionais
+IF...THEN...ELSE: Executa blocos de código baseado em condições.
+CASE: Escolhe entre múltiplas condições de forma estruturada.
+
+5 - Estruturas de Repetição
+LOOP: Laço genérico com saída programada.
+WHILE: Executa enquanto a condição for verdadeira.
+FOR: Percorre um intervalo de valores automaticamente.
+
+6 - Exceções e Tratamento de Erros
+WHEN OTHERS THEN: Captura qualquer erro e evita falhas inesperadas.
+SQLERRM: Retorna a mensagem do erro ocorrido.
+*/
+
 SELECT * FROM v$version;
 
 /*
@@ -6,6 +34,8 @@ Necessário habilitar com o comando SET SERVEROUTPUT ON;
 */
 
 SET SERVEROUTPUT ON
+
+SET VERIFY OFF;  -- Evita exibição do código alterado antes da execução
 
 --testando o pacote DBMS
 DECLARE
@@ -232,28 +262,29 @@ END;
 --Se precisar de apenas um registro, FETCH sem loop pode ser suficiente.
 
 
-
+/*
 Objetos que Podemos Programar no PL/SQL
-🔹 1. Blocos Anônimos
+1 - Blocos Anônimos
 Código PL/SQL sem nome, executado diretamente no SQL Developer ou no banco, sem ser armazenado.
 
-🔹 2. Procedures (Procedimentos)
+2 - Procedures (Procedimentos)
 Blocos armazenados no banco que executam operações sem retornar valores diretamente.
 
-🔹 3. Functions (Funções)
+3 - Functions (Funções)
 Semelhantes a procedures, mas retornam um valor específico ao serem chamadas.
 
-🔹 4. Packages (Pacotes)
+4 - Packages (Pacotes)
 Conjunto de procedures, functions e variáveis agrupadas em um único módulo para melhor organização.
 
-🔹 5. Triggers (Gatilhos)
+5 - Triggers (Gatilhos)
 Código que executa automaticamente em resposta a eventos (INSERT, UPDATE, DELETE) em uma tabela.
 
-🔹 6. Cursors (Cursores)
+6 - Cursors (Cursores)
 Estruturas que manipulam conjuntos de dados linha a linha dentro de um bloco PL/SQL.
 
-🔹 7. Views (Visões)
+7 - Views (Visões)
 Consultas pré-definidas armazenadas no banco para facilitar a reutilização e a segurança dos dados.
 
-🔹 8. Sequences (Sequências)
+8 - Sequences (Sequências)
 Objetos que geram números automaticamente, geralmente usados para chaves primárias.
+*/
