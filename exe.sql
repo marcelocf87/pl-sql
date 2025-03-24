@@ -46,8 +46,60 @@ BEGIN
 END;
 /
 
+ 
+--if/else
+set serveroutput on;
+
+DECLARE 
+    v_idade NUMBER := 25;
+BEGIN
+    if v_idade >= 18 then
+        dbms_output.put_line('É maior de idade');
+    else
+        dbms_output.put_line('É menor de idade');
+    end if;    
+END;
+/
+
+--loop
+DECLARE
+    i NUMBER := 1;
+BEGIN
+    WHILE i < 5 LOOP
+        DBMS_OUTPUT.PUT_LINE('Valor: ' ||i);
+        i := i + 1;
+    END LOOP;
+END;
+/
+
+--Crie um bloco que receba um número v_num e: Se for par, exiba "Número par". Se for ímpar, exiba "Número ímpar"
+--Faça um FOR LOOP de 1 a 10 que exiba os números e a soma acumulada
+DECLARE
+    v_num NUMBER := 11;
+BEGIN
+    if mod(v_num,2) = 0 then
+        DBMS_OUTPUT.PUT_LINE('É par');
+    else
+        DBMS_OUTPUT.PUT_LINE('É Impar');
+    end if;
+END;
+/
+
+--for 
+BEGIN
+    for i in 1..10 loop
+        DBMS_OUTPUT.PUT_LINE('Numero: '||i);
+    end loop;
+END;
+/
 
 
-
-
-
+DECLARE
+    v_soma NUMBER := 0;
+BEGIN
+    FOR i IN 1..10 LOOP
+        v_soma := v_soma + i;
+        DBMS_OUTPUT.PUT_LINE('Número: ' || i || ' | Soma dos números: ' || v_soma);
+    END LOOP;     
+END;
+/
