@@ -1,5 +1,11 @@
 set serveroutput on;
 
+declare
+   v_verdade VARCHAR2(20) := 'SÓ JESUS SALVA';
+begin
+   DBMS_OUTPUT.PUT_LINE('A verdade é: ' || v_verdade);
+end;
+/
 SET VERIFY OFF;  -- Evita exibição do código alterado antes da execução
 
 --1 Declare uma variável do tipo NUMBER, atribua um valor e exiba na saída depois altere para exibir um número informado pelo usuário
